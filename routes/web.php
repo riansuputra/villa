@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -13,20 +14,37 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', function () {
-    return view('villa-salibu.home');
-})->name('home');
+Route::get(
+    '/',
+    [HomeController::class, 'index']
+)->name('home');
 
-Route::get('/villa1', function () {
-    return view('frontend.villa1.home');
-});
+Route::get('/special-offers', function () {
+    return view('frontend.special-offers');
+})->name('special-offers');
 
-Route::get('/villa2', function () {
-    return view('frontend.villa2.home');
-});
+Route::get('/gallery', function () {
+    return view('frontend.gallery');
+})->name('gallery');
 
-Route::get('/villa3', function () {
-    return view('frontend.villa3.home');
-});
+Route::get('/contact', function () {
+    return view('frontend.contact');
+})->name('contact');
+
+Route::get('/about', function () {
+    return view('frontend.about');
+})->name('about');
+
+Route::get('/reservation-step-1', function () {
+    return view('frontend.reservation-step-1');
+})->name('reservation-step-1');
+
+Route::get('/reservation-step-2', function () {
+    return view('frontend.reservation-step-2');
+})->name('reservation-step-2');
+
+Route::get('/reservation-step-2', function () {
+    return view('frontend.reservation-step-2');
+})->name('privacy-policy');
 
 require __DIR__ . '/auth.php';
