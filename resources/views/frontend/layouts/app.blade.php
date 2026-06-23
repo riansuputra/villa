@@ -218,19 +218,19 @@
                     <span class="me-3 flex-shrink-0">
                         <i class="hicon hicon-flights-pin"></i>
                     </span>
-                    <span class="flex-grow-1">610 Placer Loquen, Marseilles, France.</span>
+                    <span class="flex-grow-1">{{ $globalVilla->address }}</span>
                 </div>
                 <div class="d-flex mb-3">
                     <span class="me-3 flex-shrink-0">
                         <i class="hicon hicon-telephone"></i>
                     </span>
-                    <span>+33 (0) 1 89 78 67 56</span>
+                    <span>+{{ $globalVilla->phone }}</span>
                 </div>
                 <div class="d-flex mb-3">
                     <span class="me-3 flex-shrink-0">
                         <i class="hicon hicon-email-envelope"></i>
                     </span>
-                    <span>Booking@example.com</span>
+                    <span>{{ $globalVilla->email }}</span>
                 </div>
             </div>
             <!-- /Contact Info -->
@@ -500,20 +500,20 @@
                     <div class="col-12 col-xxl-8 col-xl-10">
                         <!-- Description -->
                         <div data-cue="fadeIn">
-                            <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">Reservation and
+                            <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">Reservation &
                                 Experience</span>
-                            <h2 class="display-3 h-special-font mb-6 text-body-emphasis"> Are you ready to feel the
-                                privileges? </h2>
-                            <p class="mb-10"> Lorem ipsum dolor sit amet, populo adolescens sea ei, nominati inimicus
-                                quo eu, eu mei civibus appareat. Mucius putent graeco mea te. At mundi gloriatur usu, eu
-                                vix graece aliquid ex fierent officiis. </p>
+                            <h2 class="display-3 h-special-font mb-6 text-body-emphasis"> Ready to Experience
+                                {{ $globalVilla->name }}? </h2>
+                            <p class="mb-10"> Plan your perfect getaway and enjoy a stay designed for comfort,
+                                privacy, and unforgettable moments in Bali. </p>
                             <div>
-                                <a href="./reservation-step-1"
+                                <a href="{{ route('reservation-step-1') }}"
                                     class="btn btn-primary h-special-font ps-8 pe-8 mw-160 m-3">
                                     <i class="hicon hicon-bold hicon-menu-calendar"></i>
-                                    <span>Reservation</span>
+                                    <span>Reserve Now</span>
                                 </a>
-                                <a href="./contact" class="btn btn-secondary h-special-font ps-8 pe-8 mw-160 m-3">
+                                <a href="{{ route('contact') }}"
+                                    class="btn btn-secondary h-special-font ps-8 pe-8 mw-160 m-3">
                                     <i class="hicon hicon-email-envelope"></i>
                                     <span>Contact Us</span>
                                 </a>
@@ -561,14 +561,14 @@
                                 <h6 class="text-body-emphasis fs-4 h-special-font">Contact Info</h6>
                                 <div class="pt-2">
                                     <p>
-                                        <span>610 Placer Loquen, Marseilles, France.</span>
+                                        <span>{{ $globalVilla->address }}</span>
                                     </p>
                                     <p>
-                                        <span>+33 321-654-987 (Ext: 123).</span>
+                                        <span>+{{ $globalVilla->phone }}</span>
                                     </p>
                                     <p>
                                         <a href="{{ route('contact') }}"
-                                            class="text-body link-hover-primary">Booking@example.com</a>
+                                            class="text-body link-hover-primary">{{ $globalVilla->email }}</a>
                                     </p>
                                     <ul class="list-inline">
                                         <li class="list-inline-item">
@@ -862,7 +862,6 @@
     <!-- /Footer -->
     <!-- Scripts -->
     <script src="{{ asset('assets/frontend/js/salibu.min.js') }}"></script>
-
     <!-- /Scripts -->
 </body>
 

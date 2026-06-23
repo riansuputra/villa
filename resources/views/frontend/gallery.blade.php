@@ -12,8 +12,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-8 col-lg-10" data-cue="fadeIn">
-                    <span class="text-uppercase h-sub-font fw-medium ls-2 d-block text-secondary mb-4">The Salibu
-                        Resort</span>
+                    <span
+                        class="text-uppercase h-sub-font fw-medium ls-2 d-block text-secondary mb-4">{{ $globalVilla->name }}</span>
                     <h1 class="display-1 h-special-font mb-3 text-body-emphasis">Gallery</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">

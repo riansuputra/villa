@@ -7,39 +7,128 @@
     <section id="title" class="pt-30 text-center">
         <div class="container">
             <div data-cue="fadeIn">
-                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4 text-secondary">My Account</span>
+                <span
+                    class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4 text-secondary">{{ $globalVilla->name }}</span>
                 <h1 class="display-4 h-special-font mb-3 text-body-emphasis">Reservation</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center mb-12">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Villas & Suites</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Reservation</li>
                     </ol>
                 </nav>
-                <div class="position-relative m-6">
-                    <div class="progress bg-body-secondary" role="progressbar" aria-label="Progress" aria-valuenow="50"
-                        aria-valuemin="0" aria-valuemax="100" style="height: 2px;">
-                        <div class="progress-bar" style="width: 33.333333%"></div>
-                    </div>
-                    <a href="javascript:void(0);" class="position-absolute top-0 start-0 translate-middle"></a>
-                    <a href="javascript:void(0);"
-                        class="position-absolute top-0 start-33 translate-middle btn btn-square btn-primary rounded-circle">1</a>
-                    <a href="javascript:void(0);"
-                        class="position-absolute top-0 start-66 translate-middle btn btn-square btn-primary rounded-circle">2</a>
-                    <a href="javascript:void(0);" class="position-absolute top-0 start-100 translate-middle"></a>
-                </div>
             </div>
         </div>
     </section>
     <!-- /Page title -->
     <!-- content -->
+    <!-- Check rooms -->
+    <div class="pb-4 pt-lg-0 pb-lg-0">
+        <div class="container">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-6">
+                    <form class="row g-4" method="GET" action="{{ route('reservation-step-1') }}">
+                        <div class="col-12 col-lg-5 col-md-7">
+                            <!-- Input date -->
+                            <div class="mb-0">
+                                <div class="position-relative">
+                                    <label
+                                        class="hicon hicon-menu-calendar hicon-bold text-secondary cursor-pointer position-absolute top-50 start-0 translate-middle-y ms-5 z-1"
+                                        for="txtCheckDate"></label>
+                                    <input id="txtCheckDate" name="date" type="text"
+                                        class="check-date form-select cursor-pointer shadow-none ps-11 fw-medium bg-body-tertiary"
+                                        placeholder="" readonly>
+                                </div>
+                            </div>
+                            <!-- /Input date -->
+                        </div>
+                        <div class="col-12 col-lg-4 col-md-5">
+                            <!-- Input number of guests -->
+                            <div class="mb-0">
+                                <div class="position-relative">
+                                    <label
+                                        class="hicon hicon-couple hicon-bold text-secondary cursor-pointer position-absolute top-50 start-0 translate-middle-y ms-5 z-1"
+                                        for="btnCheckGuest"></label>
+                                    <div class="dropdown" data-total-guest="">
+                                        <button
+                                            class="form-select w-100 text-start shadow-none ps-11 fw-medium bg-body-tertiary"
+                                            id="btnCheckGuest" data-bs-auto-close="outside" type="button"
+                                            data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="text-nowrap">
+                                                <span data-total-adults=""></span>, <span data-total-children=""></span>
+                                            </span>
+                                        </button>
+                                        <ul class="dropdown-menu animate slideIn p-6 border-0 shadow">
+                                            <li>
+                                                <div class="mb-3">
+                                                    <label for="txtCheckAdults" class="form-label">Adults</label>
+                                                    <div class="input-group shadow-sm">
+                                                        <button
+                                                            class="btn btn-light bg-body-tertiary text-secondary border link-hover-primary"
+                                                            type="button" data-minus-adults="">
+                                                            <i class="hicon hicon-minus-thin small"></i>
+                                                        </button>
+                                                        <input type="text" class="form-control text-center"
+                                                            placeholder="Adults" value="1" aria-label="Adults"
+                                                            id="txtCheckAdults" name="adults" data-adults-max="10"
+                                                            data-input-adults="">
+                                                        <button
+                                                            class="btn btn-light bg-body-tertiary text-secondary border link-hover-primary"
+                                                            type="button" data-plus-adults="">
+                                                            <i class="hicon hicon-plus-thin small"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="mb-1">
+                                                    <label for="txtCheckChildren" class="form-label">Children</label>
+                                                    <div class="input-group shadow-sm">
+                                                        <button
+                                                            class="btn btn-light bg-body-tertiary text-secondary border link-hover-primary"
+                                                            type="button" data-minus-children="">
+                                                            <i class="hicon hicon-minus-thin small"></i>
+                                                        </button>
+                                                        <input type="text" class="form-control text-center"
+                                                            placeholder="Children" value="0" aria-label="Children"
+                                                            id="txtCheckChildren" name="children" data-children-max="20"
+                                                            data-input-children="">
+                                                        <button
+                                                            class="btn btn-light bg-body-tertiary text-secondary border link-hover-primary"
+                                                            type="button" data-plus-children="">
+                                                            <i class="hicon hicon-plus-thin small"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Input number of guests -->
+                        </div>
+                        <div class="col-12 col-lg-3 col-md-12">
+                            <!-- Button -->
+                            <div class="mb-0">
+                                <button type="submit" class="btn btn-primary w-100 fw-medium">
+                                    <i class="hicon hicon-search-box me-1"></i>
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                            <!-- /Button -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Check rooms -->
     <!-- Dashboard -->
-    <section id="dashboard" class="pt-19 pb-19">
+    <section id="dashboard" class="pt-10 pb-19">
         <div class="container">
             <div class="row g-0 g-lg-8" data-cues="fadeIn">
                 <div class="col-12 col-xl-6 col-lg-5 pb-8 pb-lg-0">
                     <!-- Booking details -->
-                    <div class="card bg-body shadow-sm h-100 card-selected" data-aos-delay="300" data-aos="fade-up">
+                    <div class="card bg-body shadow-sm h-100" data-aos-delay="300" data-aos="fade-up">
                         <div class="card-body">
                             <div>
                                 <h2 class="h3 h-special-font">1. Booking details</h2>

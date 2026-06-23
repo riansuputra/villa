@@ -7,12 +7,12 @@
     <section id="title" class="pt-30 text-center">
         <div class="container">
             <div data-cue="fadeIn">
-                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4 text-secondary">My Account</span>
+                <span
+                    class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4 text-secondary">{{ $globalVilla->name }}</span>
                 <h1 class="display-4 h-special-font mb-3 text-body-emphasis">Reservation</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center mb-12">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Villas & Suites</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Reservation</li>
                     </ol>
                 </nav>

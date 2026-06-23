@@ -53,7 +53,7 @@ class HomeController extends Controller
         $price = Price::first();
 
         $setting = Setting::first();
-
+        // dd($villa, $gallery, $featuredGallery, $facilities, $features, $offers, $price, $setting);
         return view(
             'frontend.home',
             compact(

@@ -19,6 +19,15 @@ Route::get(
     [HomeController::class, 'index']
 )->name('home');
 
+Route::get(
+    '/reservation-step-1',
+    function () {
+        return view(
+            'frontend.reservation-step-1'
+        );
+    }
+)->name('reservation-step-1');
+
 Route::get('/special-offers', function () {
     return view('frontend.special-offers');
 })->name('special-offers');
@@ -34,10 +43,6 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('frontend.about');
 })->name('about');
-
-Route::get('/reservation-step-1', function () {
-    return view('frontend.reservation-step-1');
-})->name('reservation-step-1');
 
 Route::get('/reservation-step-2', function () {
     return view('frontend.reservation-step-2');

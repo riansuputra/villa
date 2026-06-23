@@ -12,8 +12,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-xl-8 col-lg-10" data-cue="fadeIn">
-                    <span class="text-uppercase h-sub-font fw-medium ls-2 d-block text-secondary mb-4">The Salibu
-                        Resort</span>
+                    <span
+                        class="text-uppercase h-sub-font fw-medium ls-2 d-block text-secondary mb-4">{{ $globalVilla->name }}</span>
                     <h1 class="display-1 h-special-font mb-3 text-body-emphasis">Contact Us</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
@@ -41,7 +41,7 @@
                                         <i class="hicon hicon-flights-pin"></i>
                                         <span class="fw-medium">Address:</span>
                                     </div>
-                                    <div class="fw-bold-2">610 Placer Loquen, Marseilles, France.</div>
+                                    <div class="fw-bold-2">{{ $globalVilla->address }}</div>
                                 </div>
                             </div>
                             <div class="col-12 col-xl-12 col-lg-4 col-md-6">
@@ -50,7 +50,7 @@
                                         <i class="hicon hicon-telephone"></i>
                                         <span class="fw-medium">Phone:</span>
                                     </div>
-                                    <div class="fw-bold-2">+33 321-654-987 (Ext: 123).</div>
+                                    <div class="fw-bold-2">+{{ $globalVilla->phone }}</div>
                                 </div>
                             </div>
                             <div class="col-12 col-xl-12 col-lg-4 col-md-6">
@@ -59,7 +59,7 @@
                                         <i class="hicon hicon-email-envelope"></i>
                                         <span class="fw-medium"> Email:</span>
                                     </div>
-                                    <div class="fw-bold-2">Booking@example.com.</div>
+                                    <div class="fw-bold-2">{{ $globalVilla->email }}</div>
                                 </div>
                             </div>
                         </div>

@@ -23,9 +23,9 @@
                             <div class="bg-content">
                                 <div class="d-flex align-items-center h-100 pt-18 pt-lg-0">
                                     <div class="container">
-                                        <p class="text-uppercase ls-8 h-sub-font mb-3 fs-4"> {{ $villa->hero_title }}
+                                        <p class="text-uppercase ls-8 h-sub-font mb-3 fs-4"> {{ $villa->name }}
                                         </p>
-                                        <h4 class="display-2 h-special-font mb-0"> Spectacular Sea Views </h4>
+                                        <h4 class="display-2 h-special-font mb-0"> Create Unforgettable Moments </h4>
                                     </div>
                                 </div>
                             </div>
@@ -41,9 +41,10 @@
                             <div class="bg-content">
                                 <div class="d-flex align-items-center h-100 pt-18 pt-lg-0">
                                     <div class="container">
-                                        <p class="text-uppercase ls-8 h-sub-font mb-3 fs-4">The Sabilu Collection
+                                        <p class="text-uppercase ls-8 h-sub-font mb-3 fs-4">{{ $villa->name }}
                                         </p>
-                                        <h4 class="display-2 h-special-font mb-0"> Enjoy The Privileges </h4>
+                                        <h4 class="display-2 h-special-font mb-0"> Experience Comfort & Serenity
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -59,8 +60,8 @@
                             <div class="bg-content">
                                 <div class="d-flex align-items-center h-100 pt-18 pt-lg-0">
                                     <div class="container">
-                                        <p class="text-uppercase ls-8 h-sub-font mb-3 fs-4">The Villas & Suites</p>
-                                        <h4 class="display-2 h-special-font mb-0"> Experience The Uniqueness </h4>
+                                        <p class="text-uppercase ls-8 h-sub-font mb-3 fs-4">{{ $villa->name }}</p>
+                                        <h4 class="display-2 h-special-font mb-0"> Luxury Private Villa in Bali </h4>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +89,7 @@
             <div class="container">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-6">
-                        <form class="row g-4" method="post" action="./reservation-step-1">
+                        <form class="row g-4" method="GET" action="{{ route('reservation-step-1') }}">
                             <div class="col-12 col-lg-5 col-md-7">
                                 <!-- Input date -->
                                 <div class="mb-0">
@@ -96,7 +97,7 @@
                                         <label
                                             class="hicon hicon-menu-calendar hicon-bold text-secondary cursor-pointer position-absolute top-50 start-0 translate-middle-y ms-5 z-1"
                                             for="txtCheckDate"></label>
-                                        <input id="txtCheckDate" type="text"
+                                        <input id="txtCheckDate" name="date" type="text"
                                             class="check-date form-select cursor-pointer shadow-none ps-11 fw-medium bg-body-tertiary"
                                             placeholder="" readonly>
                                     </div>
@@ -131,7 +132,7 @@
                                                             </button>
                                                             <input type="text" class="form-control text-center"
                                                                 placeholder="Adults" value="1" aria-label="Adults"
-                                                                id="txtCheckAdults" data-adults-max="10"
+                                                                id="txtCheckAdults" name="adults" data-adults-max="10"
                                                                 data-input-adults="">
                                                             <button
                                                                 class="btn btn-light bg-body-tertiary text-secondary border link-hover-primary"
@@ -153,7 +154,8 @@
                                                             <input type="text" class="form-control text-center"
                                                                 placeholder="Children" value="0"
                                                                 aria-label="Children" id="txtCheckChildren"
-                                                                data-children-max="20" data-input-children="">
+                                                                name="children" data-children-max="20"
+                                                                data-input-children="">
                                                             <button
                                                                 class="btn btn-light bg-body-tertiary text-secondary border link-hover-primary"
                                                                 type="button" data-plus-children="">
@@ -193,14 +195,13 @@
                 <div class="col-12 col-xxl-8 col-xl-10">
                     <!-- Description -->
                     <div data-cue="fadeIn">
-                        <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">The Luxury
-                            Resort</span>
-                        <h2 class="h1 h-special-font mb-6 text-body-emphasis">Salibu Seaside Resort</h2>
-                        <p class="mb-10"> Eam an assum dicant, quod augue nullam eos no. Pri ex habeo tractatos
-                            percipitur, option urbanitas eum ex, te possit aliquam utroque per. Dolorum detraxit ad
-                            eam, in usu quod omnesque consequuntur, dicit congue meliore vis ei. Ius nominati
-                            dissentiet eu, sit ut doming facilisis sententiae. </p>
-                        <a href="./about" class="btn btn-primary h-special-font ps-8 pe-8 mw-160">
+                        <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">The Luxury Retreat</span>
+                        <h2 class="h1 h-special-font mb-6 text-body-emphasis">Experience {{ $globalVilla->name }}</h2>
+                        <p class="mb-10"> Discover a private villa experience designed for comfort, elegance, and
+                            relaxation. Surrounded by the tropical atmosphere of Bali, {{ $globalVilla->name }} combines
+                            modern
+                            living with peaceful surroundings to create memorable stays for every guest. </p>
+                        <a href="{{ route('about') }}" class="btn btn-primary h-special-font ps-8 pe-8 mw-160">
                             <span>Explore</span>
                             <i class="hicon hicon-thin-circle-arrow-left"></i>
                         </a>
@@ -220,17 +221,17 @@
                     <div class="card border-0 bg-transparent mb-7 mb-lg-0" data-cue="fadeIn">
                         <div class="card-body p-md-10 p-xl-12 bg-body-tertiary">
                             <div class="mb-6">
-                                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">The Seaside
-                                    Resort</span>
-                                <h2 class="h1 h-special-font mb-4 text-body-emphasis">Explore Salibu Resort
-                                    Through Photos</h2>
-                                <p>Lorem ipsum dolor sit amet, populo adolescens sea ei, nominati inimicus quo eu,
-                                    eu mei civibus appareat. Mucius putent graeco mea te. At mundi gloriatur usu, eu
-                                    vix graece aliquid. Ex fierent officiis duo, ne timeam albucius has. Vero doctus
-                                    te ius. Ipsum accumsan nec in, atqui consequat mei an.</p>
+                                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">The Luxury
+                                    Retreat</span>
+                                <h2 class="h1 h-special-font mb-4 text-body-emphasis">Explore {{ $globalVilla->name }}
+                                    Through
+                                    Photos</h2>
+                                <p>Explore moments and spaces that reflect the beauty of modern tropical living. From
+                                    elegant interiors to relaxing outdoor areas, discover the atmosphere that makes every
+                                    stay at {{ $globalVilla->name }} unforgettable.</p>
                             </div>
                             <div class="pt-4">
-                                <a href="./gallery" class="btn btn-primary h-special-font ps-8 pe-8 mw-160">
+                                <a href="{{ route('gallery') }}" class="btn btn-primary h-special-font ps-8 pe-8 mw-160">
                                     <span>View Gallery</span>
                                     <i class="hicon hicon-thin-circle-arrow-left"></i>
                                 </a>
@@ -291,10 +292,13 @@
                 <div class="row justify-content-center" data-cue="fadeIn">
                     <div class="col-12 col-xl-8 col-lg-10">
                         <span class="text-uppercase h-sub-font fsm-1 fw-medium ls-2 d-block mb-4">The Unique
-                            Resort</span>
-                        <h2 class="h1 h-special-font mb-6 text-body-emphasis">Explore Salibu Resort</h2>
-                        <p> Eos clita partem utroque ut, veri integre qui ut, id duo dolore tacimates. Modo detracto
-                            scribentur appellantur mea eos an dicant posidonium efficiendi. </p>
+                            Experience</span>
+                        <h2 class="h1 h-special-font mb-6 text-body-emphasis">Explore the Essence of
+                            {{ $globalVilla->name }}</h2>
+                        <p> Designed to offer privacy, comfort, and a refined tropical atmosphere, {{ $globalVilla->name }}
+                            creates
+                            an experience where modern luxury meets the natural beauty of Bali. Every space is thoughtfully
+                            arranged to make each stay relaxing and memorable. </p>
                     </div>
                 </div>
                 <!-- Content -->
@@ -308,65 +312,49 @@
         <div class="container">
             <!-- Heading -->
             <div class="mb-12 text-center" data-cue="fadeIn">
-                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">The Luxury And Modern</span>
-                <h2 class="h1 h-special-font mb-6 text-body-emphasis">Explore Salibu Collection</h2>
+                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">Luxury & Modern Living</span>
+                <h2 class="h1 h-special-font mb-6 text-body-emphasis">Explore the {{ $globalVilla->name }} Experience</h2>
             </div>
             <!-- /Heading -->
             <!-- Features -->
             <div class="row g-0 g-md-8 pb-0 pb-md-10" data-cues="fadeIn">
-                <div class="col-12 col-xl-4 col-md-6">
+                <div class="col-12 col-xl-6 col-md-6">
                     <!-- Item -->
                     <div class="text-center">
                         <i class="hicon hicon-250 hicon-assembly-restaurant-line text-primary mb-4"></i>
-                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Restaurants & Bars</h3>
-                        <p>Vix placerat no eam cu bonorum sententiae atomorum duo noster ad vel.</p>
+                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Dining Experience</h3>
+                        <p>Enjoy delightful moments with thoughtfully designed dining spaces created for comfort,
+                            connection, and relaxation.</p>
                     </div>
                     <!-- /Item -->
                 </div>
-                <div class="col-12 col-xl-4 col-md-6">
+                <div class="col-12 col-xl-6 col-md-6">
                     <!-- Item -->
                     <div class="text-center mb-10 mb-md-0">
                         <i class="hicon hicon-250 hicon-private-pool text-primary mb-4"></i>
-                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Beach & Pools</h3>
-                        <p>Scripta apeirian in his accusa complect adipisci ocurreret an per.</p>
+                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Pool & Outdoor Living</h3>
+                        <p>Relax in refreshing outdoor spaces designed to balance privacy, comfort, and tropical ambiance.
+                        </p>
                     </div>
                     <!-- /Item -->
                 </div>
-                <div class="col-12 col-xl-4 col-md-6">
+                <div class="col-12 col-xl-6 col-md-6">
                     <!-- Item -->
                     <div class="text-center mb-10 mb-md-0">
                         <i class="hicon hicon-250 hicon-spas text-primary mb-4"></i>
-                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Spa & Wellness</h3>
-                        <p>An quis eligendi duo latine veritus vim placerat errem latine scribentur</p>
+                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Private Spaces</h3>
+                        <p>Experience comfortable areas designed to provide privacy and moments of complete relaxation.</p>
                     </div>
                     <!-- /Item -->
                 </div>
-                <div class="col-12 col-xl-4 col-md-6">
+                <div class="col-12 col-xl-6 col-md-6">
                     <!-- Item -->
                     <div class="text-center mb-10 mb-md-0">
                         <i class="hicon hicon-250 hicon-table-tennis text-primary mb-4"></i>
-                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Sports & Entertainment
+                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Family Friendly
                         </h3>
-                        <p>Has et magna dolore dicit essent inermis nec prima similique pri at.</p>
-                    </div>
-                    <!-- /Item -->
-                </div>
-                <div class="col-12 col-xl-4 col-md-6">
-                    <!-- Item -->
-                    <div class="text-center mb-10 mb-md-0">
-                        <i class="hicon hicon-250 hicon-golf-course-on-site text-primary mb-4"></i>
-                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Beach Golf Club</h3>
-                        <p>Ne ius assentior te soluta mel placerat appareat duo splendide quo no.</p>
-                    </div>
-                    <!-- /Item -->
-                </div>
-                <div class="col-12 col-xl-4 col-md-6">
-                    <!-- Item -->
-                    <div class="text-center mb-10 mb-md-0">
-                        <i class="hicon hicon-250 hicon-kids-club text-primary mb-4"></i>
-                        <h3 class="h4 h-special-font fw-semibold mb-4 text-body-emphasis">Children's Playground
-                        </h3>
-                        <p>Mel graece consequ ex dicunt appareat duo vim errem augue placerat.</p>
+                        <p>Spacious environments thoughtfully prepared for couples, families, and memorable shared
+                            experiences.</p>
                     </div>
                     <!-- /Item -->
                 </div>
@@ -389,25 +377,25 @@
                                     <span
                                         class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4 fsm-1 text-secondary">Feel
                                         The Uniqueness</span>
-                                    <h2 class="h1 h-special-font mb-4 text-body-emphasis">Unique Salibu Villas</h2>
-                                    <p class="mb-8"> Lorem ipsum dolor sit amet, nisl scaevola has ne, veniam
-                                        detracto et mel, ei eum dolor partiendo repudiare erroribus at has. </p>
-                                    <p>No nec tale novum, per ei vero aperiam salutatus, cu quo
-                                        iusto electram laboramus. Perfecto laboramus ad vim.</p>
+                                    <h2 class="h1 h-special-font mb-4 text-body-emphasis">Discover
+                                        {{ $globalVilla->name }}</h2>
+                                    <p class="mb-8"> Experience elegant living spaces designed with comfort, privacy, and
+                                        tropical charm. Every villa is thoughtfully created to provide a relaxing atmosphere
+                                        for memorable stays in Bali.</p>
                                     <ul class="list-unstyled text-uppercase fsm-6 ls-1 fw-semibold row">
-                                        <li class="col-12 col-md-6 d-flex align-items-center mb-3">
+                                        <li class="col-12 col-md-6 d-flex align-items-center mb-5">
                                             <i class="hicon hicon-bed MasterRoom-amenitiesIcon text-primary fs-5 me-3"></i>
                                             <span>1 King Bed / 2 Single Beds</span>
                                         </li>
-                                        <li class="col-12 col-md-6 d-flex align-items-center mb-3">
+                                        <li class="col-12 col-md-6 d-flex align-items-center mb-5">
                                             <i class="hicon hicon-sqm MasterRoom-amenitiesIcon text-primary fs-5 me-3"></i>
                                             <span>Room size 30 m²</span>
                                         </li>
-                                        <li class="col-12 col-md-6 d-flex align-items-center mb-3">
+                                        <li class="col-12 col-md-6 d-flex align-items-center mb-5">
                                             <i class="hicon hicon-city-view text-primary fs-5 me-3"></i>
                                             <span>View Sea & Garden</span>
                                         </li>
-                                        <li class="col-12 col-md-6 d-flex align-items-center mb-3">
+                                        <li class="col-12 col-md-6 d-flex align-items-center mb-5">
                                             <i class="hicon hicon-regular-gender text-primary fs-5 me-3"></i>
                                             <span>2 Adults - 1 Children</span>
                                         </li>
