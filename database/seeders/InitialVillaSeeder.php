@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
-use App\Models\Villa;
+use App\Models\Facility;
 use App\Models\Price;
 use App\Models\Setting;
+use App\Models\SpecialOffer;
+use App\Models\Villa;
 use App\Models\VillaFeature;
-use App\Models\Facility;
+use Illuminate\Database\Seeder;
 
 class InitialVillaSeeder extends Seeder
 {
@@ -49,8 +49,6 @@ class InitialVillaSeeder extends Seeder
 
         ]);
 
-
-
         Price::create([
 
             'price_day' => 1000000,
@@ -60,8 +58,6 @@ class InitialVillaSeeder extends Seeder
             'price_month' => 20000000,
 
         ]);
-
-
 
         Setting::create([
 
@@ -87,12 +83,22 @@ class InitialVillaSeeder extends Seeder
 
         Facility::create([
             'name' => 'Restaurant',
-            'icon' => 'restaurant'
+            'icon' => 'restaurant',
         ]);
 
         VillaFeature::create([
             'title' => 'Bed',
-            'value' => 'King Bed'
+            'value' => 'King Bed',
+        ]);
+
+        SpecialOffer::create([
+
+            'title' => 'Opening Promo',
+
+            'discount' => 10,
+
+            'is_active' => true,
+
         ]);
     }
 }

@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-
-use App\Models\Villa;
-use App\Models\GalleryImage;
 use App\Models\Facility;
-use App\Models\VillaFeature;
-use App\Models\SpecialOffer;
+use App\Models\GalleryImage;
 use App\Models\Price;
 use App\Models\Setting;
+use App\Models\SpecialOffer;
+use App\Models\Villa;
+use App\Models\VillaFeature;
 
 class HomeController extends Controller
 {
@@ -36,8 +35,8 @@ class HomeController extends Controller
                 'is_active',
                 true
             )
-            ->orderBy('sort_order')
-            ->get();
+                ->orderBy('sort_order')
+                ->get();
 
         $features =
             VillaFeature::orderBy(
@@ -53,6 +52,7 @@ class HomeController extends Controller
         $price = Price::first();
 
         $setting = Setting::first();
+
         // dd($villa, $gallery, $featuredGallery, $facilities, $features, $offers, $price, $setting);
         return view(
             'frontend.home',

@@ -172,7 +172,7 @@
                                     <!-- /Language & Currency -->
                                     <!-- Reservation -->
                                     <div class="mt-5 mt-xl-0">
-                                        <a href="{{ route('reservation-step-1') }}" class="btn btn-primary mw-160">
+                                        <a href="{{ route('reservation') }}" class="btn btn-primary mw-160">
                                             <i class="hicon hicon-bold hicon-menu-calendar"></i>
                                             <span>Reservation</span>
                                         </a>
@@ -493,38 +493,41 @@
     <main>
         <!-- Hero -->
         @yield('content')
-        <!-- About 4-->
-        <section id="about-4" class="pt-18 pb-18 bg-primary bg-opacity-8 text-center">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-xxl-8 col-xl-10">
-                        <!-- Description -->
-                        <div data-cue="fadeIn">
-                            <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">Reservation &
-                                Experience</span>
-                            <h2 class="display-3 h-special-font mb-6 text-body-emphasis"> Ready to Experience
-                                {{ $globalVilla->name }}? </h2>
-                            <p class="mb-10"> Plan your perfect getaway and enjoy a stay designed for comfort,
-                                privacy, and unforgettable moments in Bali. </p>
-                            <div>
-                                <a href="{{ route('reservation-step-1') }}"
-                                    class="btn btn-primary h-special-font ps-8 pe-8 mw-160 m-3">
-                                    <i class="hicon hicon-bold hicon-menu-calendar"></i>
-                                    <span>Reserve Now</span>
-                                </a>
-                                <a href="{{ route('contact') }}"
-                                    class="btn btn-secondary h-special-font ps-8 pe-8 mw-160 m-3">
-                                    <i class="hicon hicon-email-envelope"></i>
-                                    <span>Contact Us</span>
-                                </a>
+        @unless (isset($hideAbout) && $hideAbout)
+            <!-- About 4-->
+            <section id="about-4" class="pt-18 pb-18 bg-primary bg-opacity-8 text-center">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xxl-8 col-xl-10">
+                            <!-- Description -->
+                            <div data-cue="fadeIn">
+                                <span class="text-uppercase h-sub-font fw-medium ls-2 d-block mb-4">Reservation &
+                                    Experience</span>
+                                <h2 class="display-3 h-special-font mb-6 text-body-emphasis"> Ready to Experience
+                                    {{ $globalVilla->name }}? </h2>
+                                <p class="mb-10"> Plan your perfect getaway and enjoy a stay designed for comfort,
+                                    privacy, and unforgettable moments in Bali. </p>
+                                <div>
+                                    <a href="{{ route('reservation') }}"
+                                        class="btn btn-primary h-special-font ps-8 pe-8 mw-160 m-3">
+                                        <i class="hicon hicon-bold hicon-menu-calendar"></i>
+                                        <span>Reserve Now</span>
+                                    </a>
+                                    <a href="{{ route('contact') }}"
+                                        class="btn btn-secondary h-special-font ps-8 pe-8 mw-160 m-3">
+                                        <i class="hicon hicon-email-envelope"></i>
+                                        <span>Contact Us</span>
+                                    </a>
+                                </div>
                             </div>
+                            <!-- /Description -->
                         </div>
-                        <!-- /Description -->
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- /About 4-->
+            </section>
+            <!-- /About 4-->
+        @endunless
+
     </main>
     <!-- Footer -->
     <footer id="footer" class="bg-primary">
@@ -863,6 +866,7 @@
     <!-- Scripts -->
     <script src="{{ asset('assets/frontend/js/salibu.min.js') }}"></script>
     <!-- /Scripts -->
+    @stack('scripts')
 </body>
 
 </html>

@@ -2,12 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-
-use Illuminate\Support\Facades\View;
-
-use App\Models\Villa;
 use App\Models\Setting;
+use App\Models\Villa;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -18,11 +16,9 @@ class ViewServiceProvider extends ServiceProvider
             function ($view) {
 
                 $view->with([
-                    'globalVilla' =>
-                    Villa::first(),
+                    'globalVilla' => Villa::first(),
 
-                    'globalSetting' =>
-                    Setting::first(),
+                    'globalSetting' => Setting::first(),
                 ]);
             }
         );

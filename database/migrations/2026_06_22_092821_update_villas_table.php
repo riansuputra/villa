@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,8 +21,6 @@ return new class extends Migration
             $table->string('hero_image')
                 ->nullable();
 
-
-
             $table->string('explore_title')
                 ->nullable();
 
@@ -32,8 +29,6 @@ return new class extends Migration
 
             $table->string('explore_background')
                 ->nullable();
-
-
 
             $table->string('cta_title')
                 ->nullable();

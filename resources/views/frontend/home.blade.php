@@ -89,7 +89,7 @@
             <div class="container">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-6">
-                        <form class="row g-4" method="GET" action="{{ route('reservation-step-1') }}">
+                        <form class="row g-4" method="GET" action="{{ route('reservation') }}">
                             <div class="col-12 col-lg-5 col-md-7">
                                 <!-- Input date -->
                                 <div class="mb-0">

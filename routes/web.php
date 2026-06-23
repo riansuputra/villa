@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ReservationController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -20,13 +21,24 @@ Route::get(
 )->name('home');
 
 Route::get(
-    '/reservation-step-1',
-    function () {
-        return view(
-            'frontend.reservation-step-1'
-        );
-    }
-)->name('reservation-step-1');
+    '/reservation',
+    [
+        ReservationController::class,
+        'index',
+    ]
+)->name(
+    'reservation'
+);
+
+Route::post(
+    '/reservation/whatsapp',
+    [
+        ReservationController::class,
+        'whatsapp',
+    ]
+)->name(
+    'reservation.whatsapp'
+);
 
 Route::get('/special-offers', function () {
     return view('frontend.special-offers');
@@ -52,4 +64,4 @@ Route::get('/reservation-step-2', function () {
     return view('frontend.reservation-step-2');
 })->name('privacy-policy');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
